@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My E-commerce Website</title>
+    <style>
+    </style>
+
+    <!-- Load static files -->
+    {% load static %}
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index_styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+
+<!-- Banner -->
+<div class="banner" style="background-image: url('{% static 'images/banner-bg.png' %}');">
+    <!-- Navbar -->
+    <div class="navbar">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="{% url 'category_detail' slug='beauty-and-cosmetics' %}">Products</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="{% url 'view_cart' %}"> <i class="fas fa-shopping-cart cart-icon"></i> ({{ total_items_in_cart }})</a></li>
+<!--            <li><a href="#">Admin Panel</a></li> &lt;!&ndash; Add more navigation links as needed &ndash;&gt;-->
+            <!-- Add more navigation links as needed -->
+        </ul>
+    </div>
+    <!-- Navbar end-->
+    <!-- Banner Content -->
+    <div class="content">
+        <div class="search-container">
+            <form action="{% url 'search' %}" method="GET">
+                <input type="text" name="query" placeholder="Search..."><br>
+            </form>
+        </div>
+        <h1 class="banner_title">Get Start <br>Your Favorite Shopping</h1>
+    </div>
+    <!-- Banner Content end-->
+</div>
+<!-- Banner end-->
+
+<!-- Product Heading Section -->
+<div class="product-title">
+    <h2 style="text-transform: uppercase;">Product Section</h2>
+</div>
+<!-- Product Heading Section end-->
+
+<!-- Products start-->
+<div class="products">
+    <!-- Product Cards start -->
+    <div class="card-container">
+        {% for category in categories.object_list %}
+            <div class="card">
+                <img src="https://via.placeholder.com/300x200" alt="Placeholder Image">
+                <div class="card-content">
+                    <h2 class="card-title">{{ category.name }}</h2>
+                </div>
+                <button onclick="location.href='{% url 'category_detail' category.slug %}'" class="product-button">View More</button>
+            </div>
+        {% endfor %}
+    </div>
+    <!-- Product Cards start end -->
+    <div class="mx-auto">
+        {% if categories.paginator.num_pages > 1 %}
+            <div class="pagination">
+                {% for pg in categories.paginator.page_range %}
+                    <a href="?page={{ pg }}" class="{% if categories.number == pg %}active{% endif %}">{{ pg }}</a>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+    <hr>
+</div>
+<!-- Product end -->
+
+<!-- Footer -->
+<div class="footer" style="background-image: url('{% static 'images/footer.jpg' %}');">
+    This is the footer content.
+</div>
+<!-- Footer end-->
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Detail</title>
+
+    <!-- Load static files -->
+    {% load static %}
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/product_styles.css' %}">
+    <style>
+        /* Additional inline styles can be added here if necessary */
+    </style>
+</head>
+<body>
+
+<!-- Banner Section -->
+<div class="Product_banner">
+    <!-- Navbar -->
+    <div class="navbar">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="{% url 'category_detail' slug='electronic' %}">Products</a></li>
+            <li><a href="#">About Us</a></li>
+        </ul>
+    </div>
+
+    <!-- Banner Content -->
+    <div class="content">
+        <!-- Banner title can be added here if needed -->
+        <!-- <h1 class="banner_title">{{ product.name }}</h1> -->
+    </div>
+</div>
+
+<!-- Main Container -->
+<div class="main">
+    <!-- First Division -->
+    <div class="first-div">
+        <!-- Image Container -->
+        <div class="img_product">
+            <!-- Product Image -->
+            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
+            <!-- Content for image can be added here if needed -->
+        </div>
+
+        <!-- Button Container -->
+        <div class="button_container">
+            <!-- Form for adding to cart -->
+            <form action="{% url 'add_to_cart' product.id %}" method="post" class="button_cart_buy buy-now">
+                {% csrf_token %}
+                <input type="submit" value="Add to Cart" class="button_cart_buy buy-now">
+            </form>
+
+            <!-- Dummy Buy Now button -->
+            <!-- <button class="button_cart_buy buy-now">Buy Now</button> -->
+        </div>
+    </div>
+
+    <!-- Second Division -->
+    <div class="second-div">
+        <!-- Product Name -->
+        <div class="product_name">
+            <!-- Displaying the product name -->
+            {{ product.name }}
+        </div>
+
+        <!-- Product Description -->
+        <div class="product_description">
+            <!-- Displaying the product description -->
+            <p>{{ product.description }}</p>
+        </div>
+
+        <!-- Product Price -->
+        <div class="product_price">
+            <!-- Displaying the product price -->
+            <p class="price">Price: ${{ product.price }}</p>
+        </div>
+
+        <!-- Offers -->
+        <div class="offer">
+            <h1>Available Offers</h1>
+            <ul>
+                <!-- Displaying available offers -->
+                <li>Bank Offer: Get ₹25* instant discount for the 1st Order using SPIC UPI (T&C Applicable)</li>
+                <li>Bank Offer: 5% Cashback on Axis Bank Card (T&C Applicable)</li>
+                <li>Special Price: Get extra ₹3500 off (price inclusive of cashback/coupon) (T&C Applicable)</li>
+                <li>Buy for ₹100 get ₹25 off your Next Buy (T&C Applicable)</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <!-- Displaying the footer content -->
+    This is the footer content.
+</div>
+
+<!-- JavaScript if needed -->
+<script>
+    // JavaScript code can be added here if necessary
+</script>
+
+</body>
+</html>

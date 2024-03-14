@@ -1,0 +1,132 @@
+/* CSS for banner */
+.banner {
+    position: relative;
+    width: 100%;
+    height: 80vh; /* Adjust height as needed */
+    background-color: #f0f0f0; /* Fallback color */
+    /*background-image: url('banner-bg.png'); /* Replace 'banner-bg.png' with your image file */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    padding-top: 80px; /* Adjust vertical padding to center text */
+}
+
+/* CSS for navigation bar */
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 50%; /* Center the navigation bar horizontally */
+    transform: translateX(-50%);
+    width: 90%;
+    background-color: rgba(0, 0, 0, 0.5);
+    clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+    padding: 10px 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.navbar li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    color: #f0f0f0;
+}
+
+/* Additional styling */
+.content {
+    padding-top: 250px; /* Adjust to leave space below the navbar */
+}
+
+.banner_title {
+    width: 100%;
+    font-size: 60px;
+    color: #ffffff;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* CSS for product cards */
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.product-card {
+    width: calc(33.33% - 20px); /* 33.33% width minus gap */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.product-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.product-price {
+    font-size: 18px;
+    color: #f26522; /* Your desired price color */
+}
+
+.product-description {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.product-button {
+    padding: 10px 20px;
+    background-color: #f26522; /* Your desired button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product-button:hover {
+    background-color: #d35400; /* Darker shade of button color on hover */
+}
+
+.footer {
+    position: relative;
+    width: 100%;
+    height: 10vh; /* Adjust height as needed */
+    background-color: #f0f0f0; /* Fallback color */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    padding-top: 60px; /* Adjust vertical padding to center text */
+}

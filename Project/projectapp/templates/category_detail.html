@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Detail</title>
+
+    <!-- Load static files -->
+    {% load static %}
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/categories_styles.css' %}">
+</head>
+<body>
+
+<!-- Banner -->
+<div class="banner">
+    <!-- Navbar -->
+    <div class="navbar">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">About Us</a></li>
+            <!-- Add more navigation links as needed -->
+        </ul>
+    </div>
+
+    <!-- Banner Content -->
+    <div class="content">
+        <h1 class="banner_title">{{ category.name }}</h1>
+    </div>
+</div>
+
+<!-- Main Categories Section -->
+<div class="main_categories">
+    <!-- Categories -->
+    <div class="categories">
+        <h1> CATEGORIES </h1>
+
+        <!-- Category List -->
+        <ul class="category-list">
+            {% for category in category_list %}
+                <li class="product-card">
+                    <div class="product-title">
+                        <!-- Link to the category detail page -->
+                        <a href="{% url 'category_detail' category.slug %}">{{ category.name }}</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <!-- Categories end-->
+
+    <!-- Products -->
+    <div class="products">
+        <!-- Product Cards -->
+        <div class="card-container">
+            {% for product in products.object_list %}
+                <div class="card">
+<!--                    <img src="https://via.placeholder.com/300x200" alt="Placeholder Image">-->
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
+                    <div class="card-content">
+                        <h2 class="card-title">{{ product.name }}</h2>
+                        <button onclick="location.href='{% url 'product_detail' product.id %}'" class="product-button">View More</button>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Pagination -->
+        <div class="mx-auto">
+            {% if products.paginator.num_pages > 1 %}
+                <div class="pagination">
+                    {% for pg in products.paginator.page_range %}
+                        <a href="?page={{ pg }}" class="{% if products.number == pg %}active{% endif %}">{{ pg }}</a>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="footer" style="background-image: url('{% static 'images/footer.jpg' %}');">
+    This is the footer content.
+</div>
+
+<!-- JavaScript if have -->
+<script></script>
+
+</body>
+</html>

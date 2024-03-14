@@ -1,0 +1,174 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* CSS for banner */
+.Product_banner {
+    position: relative;
+    width: 100%;
+    height: 20vh; /* Adjust height as needed */
+    background: linear-gradient(to bottom, rgb(214,163,21), rgb(194,147,2));
+    background-color: #d6a315; /* Fallback color */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    padding-top: 40px; /* Adjust vertical padding to center text */
+    margin: 0;
+}
+
+/* CSS for navigation bar */
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 50%; /* Center the navigation bar horizontally */
+    transform: translateX(-50%);
+    width: 90%;
+    background-color: rgba(0, 0, 0, 0.5);
+    clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+    padding: 5px 0;
+    margin: 0;
+    font-size: 15px;
+    list-style-type: none;
+    height: 50px;
+}
+
+.navbar li {
+    display: inline-block;
+    margin-right: 20px;
+    text-align: center;
+    padding:15px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    color: #f0f0f0;
+}
+
+/* CSS for main container */
+.main {
+    display: flex;
+    height: calc(100vh - 23vh - 15vh); /* Subtracting header and footer heights */
+}
+
+/* CSS for first division */
+.first-div {
+    width: 30%;
+    background-color: #f0f0f0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* CSS for image container */
+.img_product {
+    max-height: 80%;
+    overflow: hidden; /* Hide overflow */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img_product img {
+    max-width: 100%; /* Ensure image doesn't exceed container width */
+    max-height: 100%; /* Ensure image doesn't exceed container height */
+}
+
+/* CSS for button container */
+.button_container {
+    padding: 10px 0;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.button_cart_buy .buy-now {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.button_cart_buy .buy-now:hover {
+    background-color: #45a049; /* Darker Green */
+}
+
+/* CSS for second division */
+.second-div {
+    width: 70%;
+    background-color: #d6d6d6; /* Sample background color */
+    padding: 20px;
+}
+
+/* CSS for product name */
+.product_name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase; /* Convert text to uppercase */
+}
+
+/* CSS for product description */
+.product_description {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* CSS for product price */
+.product_price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff; /* Blue color for price */
+    margin-bottom: 10px;
+}
+
+/* CSS for offers */
+.offer {
+    margin-top: 20px;
+}
+
+.offer h1 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.offer ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.offer li {
+    font-size: 14px;
+    margin-bottom: 2px;
+    padding: 10px;
+}
+
+/* CSS for footer */
+.footer {
+    position: relative;
+    width: 100%;
+    height: 15vh;
+    background-color: #d6a315;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    padding-top: 40px;
+}

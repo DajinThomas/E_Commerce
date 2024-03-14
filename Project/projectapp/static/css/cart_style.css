@@ -1,0 +1,257 @@
+/* CSS for banner */
+.Product_banner {
+  position: relative;
+  width: 100%;
+  height: 10vh; /* Adjust height as needed */
+  background: linear-gradient(to bottom, rgb(214,163,21), rgb(194,147,2));
+  background-color: #d6a315; /* Fallback color */
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+  padding-top: 40px; /* Adjust vertical padding to center text */
+}
+
+/* CSS for navigation bar */
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 50%; /* Center the navigation bar horizontally */
+    transform: translateX(-50%);
+    width: 90%;
+    background-color: rgba(0, 0, 0, 0.5);
+    clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+    padding: 5px 0;
+    margin: 0;
+    font-size: 15px;
+    list-style-type: none;
+    height: auto;
+}
+
+.navbar li {
+    display: inline-block;
+    margin-right: 20px;
+    text-align: center;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    color: #f0f0f0;
+}
+
+/* CSS for main container */
+.cart-container {
+  display: flex;
+}
+
+.cart-left {
+  width: 70%;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-right: 1px solid #ccc;
+}
+
+.card {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+}
+
+.card-content {
+  flex: 1;
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-description {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.card-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 5px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.card-price {
+  font-weight: bold;
+  color: #333;
+}
+
+.cart-actions {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.cart-actions input[type="number"] {
+  border: none;
+  border-radius: 0;
+  padding: 5px;
+  width: 50px; /* Adjust width as needed */
+}
+
+.cart-actions .add-btn,
+.cart-actions .less-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cart-actions .add-btn:hover,
+.cart-actions .less-btn:hover {
+  background-color: #0056b3;
+}
+
+.cart-actions button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.cart-actions button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.cart-actions a button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.cart-actions a button:hover {
+  background-color: #ff3333;
+}
+
+.cart-right {
+  float: right;
+  width: 30%; /* Adjust according to your layout */
+}
+
+.order-form {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.order-form h2 {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
+
+.order-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.order-form input[type="text"],
+.order-form input[type="email"],
+.order-form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.product-info {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  list-style-type: none; /* Display product info as a list */
+}
+
+.product-info li {
+  margin-bottom: 5px;
+}
+
+.order-form button[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  float: center; /* Move the place order button to the left */
+  clear: both; /* Clear floats to ensure proper positioning */
+  margin-top:25px;
+}
+
+.order-form button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.total-price {
+  margin-bottom:20px;
+}
+
+/* Footer Styling */
+.footer {
+    position: relative;
+    width: 100%;
+    height: 10vh; /* Adjust height as needed */
+    background-color: #f0f0f0; /* Fallback color */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    padding-top: 40px; /* Adjust vertical padding to center text */
+}
+
+/* Pagination Styling */
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination a {
+    display: inline-block;
+    padding: 8px 16px;
+    margin: 0 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+    color: #212529;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.pagination a:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.pagination .active {
+    background-color: #007bff;
+    color: white;
+}

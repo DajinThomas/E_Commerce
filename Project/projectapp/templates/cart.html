@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart</title>
+
+  <!-- Load static files -->
+  {% load static %}
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/cart_style.css' %}">
+
+  <style>
+    /* Additional inline styles can be added here if necessary */
+  </style>
+</head>
+<body>
+
+<!-- Banner Section -->
+<div class="Product_banner">
+    <!-- Navbar -->
+    <div class="navbar">
+        <ul>
+            <!-- Navigation links -->
+            <li><a href="/">Home</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">About Us</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- Main Content -->
+<div class="cart-container">
+  <!-- Left side content -->
+  <div class="cart-left">
+    <!-- Iterating over cart items -->
+    {% for item in cart_items %}
+    <div class="card">
+      <!-- Card image -->
+      <img class="card-image" src="{{ item.product.image.url }}" alt="Card Image">
+      <div class="card-content">
+        <!-- Card title -->
+        <h2 class="card-title">{{ item.product.name }}</h2>
+        <!-- Card description -->
+        <p class="card-description">{{ item.product.description }}</p>
+        <!-- Card price -->
+        <div class="card-price">${{ item.product.price }}</div>
+        <!-- Cart actions -->
+        <div class="cart-actions">
+          <!-- Form for updating quantity -->
+          <form class="update-form" method="post" action="{% url 'update_cart' item.id %}">
+            {% csrf_token %}
+            <label for="quantity">Quantity:</label>
+            <!-- Input for quantity -->
+            <input type="number" id="quantity{{ item.id }}" name="quantity" value="{{ item.quantity }}" min="1">
+            <!-- Increase quantity button -->
+            <button class="add-btn" type="button" onclick="increaseQuantity('{{ item.id }}')">+</button>
+            <!-- Decrease quantity button -->
+            <button class="less-btn" type="button" onclick="decreaseQuantity('{{ item.id }}')">-</button>
+            <!-- Update button -->
+            <button type="submit">Update</button>
+          </form>
+          <!-- Delete button -->
+          <a href="{% url 'delete_cart_item' item.id %}">
+            <button>Delete</button>
+          </a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    <div class="mx-auto">
+        {% if cart_items.paginator.num_pages > 1 %}
+            <div class="pagination">
+                {% for pg in cart_items.paginator.page_range %}
+                    <a href="?page={{ pg }}" class="{% if cart_items.number == pg %}active{% endif %}">{{ pg }}</a>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+  </div>
+
+  <!-- Right side content -->
+  <div class="cart-right">
+    <!-- Order form -->
+    <div class="order-form">
+        <h2>Place Your Order</h2>
+        <!-- Form for placing order -->
+        <form action="#" method="post">
+            <!-- Input fields for name, email, and address -->
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" required></textarea>
+
+<!--            &lt;!&ndash; Product selected section &ndash;&gt;-->
+<!--            <h2>Product Selected</h2>-->
+<!--            <ul>-->
+<!--                &lt;!&ndash; Iterating over cart items to display selected products &ndash;&gt;-->
+<!--                {% for item in cart_items %}-->
+<!--                <li>-->
+<!--                    <div class="product-info">-->
+<!--                        &lt;!&ndash; Product name, quantity, and price &ndash;&gt;-->
+<!--                        <p>{{ item.product.name }} ({{ item.quantity }} Nos) - ${{ item.product.price }}</p>-->
+<!--                    </div>-->
+<!--                </li>-->
+<!--                {% endfor %}-->
+<!--            </ul>-->
+            <!-- Total price -->
+            <span class="total-price">Total Cart Price: ${{ total_price }}</span>
+            <br>
+            <!-- Submit button for placing order -->
+            <div>
+                <button type="submit">Place Order</button>
+            </div>
+        </form>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer" style="background-image: url('{% static 'images/footer.jpg' %}');">
+    This is the footer content.
+</div>
+<!-- Footer end-->
+
+<!-- JavaScript for quantity manipulation -->
+<script>
+  // Function to increase quantity
+  function increaseQuantity(itemId) {
+    var inputElement = document.getElementById('quantity' + itemId);
+    inputElement.value = parseInt(inputElement.value) + 1;
+  }
+
+  // Function to decrease quantity
+  function decreaseQuantity(itemId) {
+    var inputElement = document.getElementById('quantity' + itemId);
+    var newValue = parseInt(inputElement.value) - 1;
+    if (newValue >= 1) {
+      inputElement.value = newValue;
+    }
+  }
+</script>
+</body>
+</html>

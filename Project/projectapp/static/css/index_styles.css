@@ -1,0 +1,197 @@
+/* CSS for banner */
+.banner {
+    position: relative;
+    width: 100%;
+    height: 80vh; /* Adjust height as needed */
+    background-color: #f0f0f0; /* Fallback color */
+    /*background-image: url('banner-bg.png'); /* Replace 'banner-bg.png' with your image file */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    padding-top: 65px; /* Adjust vertical padding to center text */
+}
+
+/* Additional styling banner*/
+.content {
+    padding-top: 230px; /* Adjust to leave space below the navbar */
+}
+
+.banner_title {
+    width: 100%;
+    font-size: 55px;
+    color: #ffffff;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* CSS for navigation bar */
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 50%; /* Center the navigation bar horizontally */
+    transform: translateX(-50%);
+    width: 90%;
+    background-color: rgba(0, 0, 0, 0.5);
+    clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+    padding: 5px 0;
+    margin: 0;
+    font-size: 15px;
+    list-style-type: none;
+    height: auto;
+}
+
+.navbar li {
+    display: inline-block;
+    margin-right: 20px;
+    text-align: center;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    color: #f0f0f0;
+}
+
+/* Styles for search box */
+.search-container {
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.search-container input[type="text"] {
+    width: calc(70% - 10px); /* Adjusted width to accommodate gap */
+    padding: 12px;
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    outline: none;
+    font-size: 16px;
+    transition: border-color 0.3s;
+    margin-bottom: 10px; /* Add a margin between input and button */
+}
+
+.search-container input[type="text"]:focus {
+    border-color: #007bff;
+}
+
+.search-container button {
+    width: 25%;
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-container button:hover {
+    background-color: #0056b3;
+}
+
+.cart-icon {
+    font-size: 24px;
+    margin-top: 0px;
+    padding-top:3px;
+}
+
+/* Product Card Section */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-left: 0;
+    margin-bottom: 10px;
+}
+
+.card {
+    width: calc(22% - 10px); /* Change the width of the card here */
+    height: 350px; /* Change the height of the card here */
+    border: 2px solid #3498db; /* Border color */
+    border-radius: 10px;
+    padding: 8px; /* Padding around the content */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    margin-left: 25px;
+}
+
+.card img {
+    width: 100%; /* Image width set to fill the card */
+    height: 260px; /* Automatically adjust image height */
+}
+
+.card-content {
+    text-align: center;
+}
+
+.card-title {
+    font-size: 18px;
+    margin-bottom: 3px;
+}
+
+.product-button {
+    margin-top: 20px; /* Adjust this value as needed */
+    margin-bottom: 205px; /* Adjust this value as needed */
+    padding: 10px 20px; /* Adjust padding as needed */
+    background-color: #f26522; /* Your desired button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block; /* Change display to block to allow text-align to center */
+    margin: 0 auto; /* Centers the button horizontally */
+}
+
+.product-button:hover {
+    background-color: #d35400; /* Darker shade of button color on hover */
+}
+
+/* Footer Styling */
+.footer {
+    position: relative;
+    width: 100%;
+    height: 10vh; /* Adjust height as needed */
+    background-color: #f0f0f0; /* Fallback color */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    padding-top: 60px; /* Adjust vertical padding to center text */
+}
+
+/* Pagination Styling */
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination a {
+    display: inline-block;
+    padding: 8px 16px;
+    margin: 0 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+    color: #212529;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.pagination a:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.pagination .active {
+    background-color: #007bff;
+    color: white;
+}
